@@ -19,9 +19,7 @@ public class GatewayApiApplication {
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route("usersRegistration", r -> r.path("/usersRegistration/**")
-                        .uri("http://usersRegistration:8081")) // Replace with your microservice URL
-                .route("userAccount", r -> r.path("/userAccount/**")
-                        .uri("http://userAccount:8082")) // Replace with your microservice URL
+                        .uri("http://localhost:5001")) // Replace with your microservice URL
                 .build();
     }
 
