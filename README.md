@@ -9,8 +9,3 @@ user-facing, allowing clients to interact with various services.
 
 This project is a crucial element of my ongoing endeavor to transition from a monolithic 
 WebApplication architecture to a more dynamic microservices' architecture.
-
-For a clearer understanding, refer to the diagram below:
-![GatewayAPI](WebApplication_Microservices.png)
-
-
