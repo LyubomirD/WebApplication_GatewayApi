@@ -15,8 +15,8 @@ public class CorsConfig implements WebFluxConfigurer {
                 .allowedOrigins("*") // Allow all origins
                 .allowedOrigins("http://localhost:63343") // Replace with your frontend URL
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
-                .allowedHeaders("*")
                 .allowCredentials(true)
                 .maxAge(3600);
     }
+
 }
