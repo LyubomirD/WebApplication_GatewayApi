@@ -1,4 +1,4 @@
-WebApplication Gateway API
+# WebApplication_GatewayApi
 
 This is the Gateway API designed to seamlessly bridge the gap between my frontend and 
 the array of backend microservices!
