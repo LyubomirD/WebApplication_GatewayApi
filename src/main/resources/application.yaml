@@ -2,14 +2,21 @@ server:
   port: 5000
 
 spring:
+  application:
+    name: GatewayApi
   cloud:
     gateway:
       globalcors:
         corsConfigurations:
           '[/**]':
-            allowedOrigins: "*"
-            allowedMethods:
-              - GET
-              - POST
-              - PUT
-              - DELETE
+            allowedOrigins: "https://localhost:63343" # Frontend
+            allowedMethods: "*"
+            allowedHeaders: "*"
+      routes:
+        - id: LoginSignUpUsers # A unique identifier for this route
+          uri: http://localhost:5001 # The URL of your user service
+          predicates:
+            - Method=GET,POST # The HTTP methods this route should handle
+            - Path=/usersRegistration/** # The path this route should match
+          filters:
+            - RewritePath=/usersRegistration/(?<segment>.*),/$\{segment} # Segment frontend inf.
