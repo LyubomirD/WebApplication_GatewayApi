@@ -13,7 +13,6 @@ public class SpringCloudConfig {
         corsConfig.addAllowedOrigin("*");
         corsConfig.addAllowedMethod("*");
         corsConfig.addAllowedHeader("*");
-
         org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource source =
                 new org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", corsConfig);

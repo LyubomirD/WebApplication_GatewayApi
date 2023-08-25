@@ -16,12 +16,13 @@ public class NoCorsGatewayFilterFactory extends AbstractGatewayFilterFactory<Obj
     public GatewayFilter apply(Object config) {
         return (exchange, chain) -> {
             ServerHttpRequest request = exchange.getRequest().mutate()
-                    .header(HttpHeaders.ORIGIN, "*")
-                    .header(HttpHeaders.ACCESS_CONTROL_REQUEST_METHOD, "*")
-                    .header(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "*")
+                    .header(HttpHeaders.ORIGIN, "http://localhost:63343") // Replace with the specific origin
+                    .header(HttpHeaders.ACCESS_CONTROL_REQUEST_METHOD, "GET, POST")
+                    .header(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "http://localhost:63343") // Replace with the specific origin
                     .header(HttpHeaders.ACCESS_CONTROL_ALLOW_HEADERS, "*")
-                    .header(HttpHeaders.ACCESS_CONTROL_ALLOW_METHODS, "*")
+                    .header(HttpHeaders.ACCESS_CONTROL_ALLOW_METHODS, "GET, POST") // Adjust allowed methods
                     .build();
+
 
             return chain.filter(exchange.mutate().request(request).build());
         };
