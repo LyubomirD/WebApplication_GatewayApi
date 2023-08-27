@@ -23,7 +23,7 @@ public class GatewayApiApplication {
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route("usersRegistration", r -> r.path("/usersRegistration/**")
-                        .uri("lb://userService"))
+                        .uri("lb://MicroserviceLoginSignUp"))
                 .build();
     }
 
