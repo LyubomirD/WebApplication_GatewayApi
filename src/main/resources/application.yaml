@@ -2,6 +2,8 @@ server:
   port: 5000
 
 spring:
+  application:
+    name: Gateway API
   cloud:
     gateway:
       globalcors:
@@ -26,3 +28,8 @@ spring:
             cors:
               allowedOrigins: http://localhost:63343
               allowedMethods: GET,POST
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
