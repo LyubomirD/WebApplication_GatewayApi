@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: Gateway API
+    name: Gateway-API
   cloud:
     gateway:
       globalcors:

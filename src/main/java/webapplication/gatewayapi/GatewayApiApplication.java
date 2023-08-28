@@ -2,15 +2,11 @@ package webapplication.gatewayapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.gateway.route.RouteLocator;
-import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
-@RestController
-@CrossOrigin(origins = "http://localhost:63343")
 @SpringBootApplication
 @EnableEurekaClient
 public class GatewayApiApplication {
@@ -20,11 +16,9 @@ public class GatewayApiApplication {
     }
 
     @Bean
-    public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
-        return builder.routes()
-                .route("usersRegistration", r -> r.path("/usersRegistration/**")
-                        .uri("lb://MicroserviceLoginSignUp"))
-                .build();
+    @LoadBalanced
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
     }
 
 }
